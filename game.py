@@ -102,7 +102,7 @@ class Game:
         self._ship_img_r = pygame.transform.smoothscale(pygame.image.load(IMAGES_PATH / "ship.png").convert_alpha(), (self.ship_size, self.ship_size))
         self._ship_img_l = pygame.transform.flip(self._ship_img_r, True, False)
         self._inv_img = pygame.transform.smoothscale(pygame.image.load(IMAGES_PATH / "invader.png").convert_alpha(), (self.inv_size, self.inv_size))
-        self._cover_img = pygame.transform.smoothscale(pygame.image.load(IMAGES_PATH / "cover.png").convert_alpha(), (self.area_stats.width, self.area_stats.height))
+        self._cover_img = pygame.transform.smoothscale(pygame.image.load(IMAGES_PATH / "cover_ver.jpg").convert_alpha(), (self.area_stats.width, self.area_stats.height))
 
         margin = int(self.area_a.width * cfg.ship_margin_percent / 100)
         self._ship_a_x = self.area_a.x + margin + self.ship_size

@@ -1,4 +1,8 @@
-# Space Invaders: Talento@DEI Edition
+![Invasores Talentosos](images/cover_hor.jpg)
+
+# Invasores Talentosos
+
+Projeto final do programa [Talento@DEI 2026](https://www.uc.pt/fctuc/dei/talento/). Este repositório serve de ponto de partida para os alunos adaptarem o jogo de forma a controlarem as naves através de sensores EMG.
 
 ## Instalar dependências
 
@@ -27,7 +31,7 @@ Isto inicia o jogo e a API em simultâneo.
 |---|---|
 | W / S — mover | ↑ / ↓ — mover |
 | SPACE — disparar | ENTER — disparar |
-| LSHIFT — bloco | RSHIFT — bloco |
+| LSHIFT — bloquear oponente | RSHIFT — bloquear oponente |
 
 ## Correr o controlador
 
