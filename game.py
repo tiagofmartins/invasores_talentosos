@@ -343,7 +343,7 @@ class Game:
 
         pulse = int(155 + 100 * abs(math.sin(now * 1.5)))
         start = self.font_small.render("Press S to start", True, (pulse, pulse, pulse))
-        self.screen.blit(start, (self.w // 2 - start.get_width() // 2, self.h * 0.93))
+        self.screen.blit(start, (self.w // 2 - start.get_width() // 2, self.h * 0.5))
 
     def _draw_game_over(self) -> None:
         overlay = pygame.Surface((self.w, self.h), pygame.SRCALPHA)
