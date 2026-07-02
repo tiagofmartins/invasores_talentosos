@@ -22,7 +22,7 @@ from shared import Command
 PLAYER_ID = "a"
 
 # Endereço e porta do servidor onde o jogo está a correr.
-API_HOST = "localhost"
+API_HOST = "127.0.0.1" # localhost
 # API_HOST = "10.6.1.31"
 API_PORT = 8000
 
