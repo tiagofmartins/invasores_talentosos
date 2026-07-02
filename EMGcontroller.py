@@ -7,7 +7,6 @@ from bitalino import BITalino
 from shared import Command
 
 
-# –––––––––––––––––––––––––––––– Configuração
 
 # Identificador do jogador
 PLAYER_ID = "a"
@@ -21,15 +20,11 @@ API_PORT = 8000
 # while on Mac OS can be "/dev/tty.BITalino-XX-XX-DevB" for devices ending with the last 4 digits of the MAC address or "/dev/tty.BITalino-DevB" for the remaining
 macAddress = "00:00:00:00:00:00"
 
-# This example will collect data for 5 sec.
-running_time = 5
-
-acqChannels = [0, 1, 2]
-samplingRate = 1000
-nSamples = 100
+SENSOR_CHANNELS = [0, 1, 2]  # Canais do BITalino a utilizar
+SAMPLING_RATE = 1000  # 10, 100, ou 1000 Hz
+SAMPLE_SIZE = 100  # Quantos valores recolher antes de processar os dados
 
 
-# –––––––––––––––––––––––––––––– Funções
 
 def send_command(cmd):
     """
@@ -51,43 +46,42 @@ def send_command(cmd):
     threading.Thread(target=_post_request, daemon=True).start()
 
 
-def process_data(data):
-    # Process the acquired data here
-    # For example, you can print the data or perform some analysis
-    print("Processing data:", data)
 
-    # send_command(Command.UP)  # Exemplo de envio do comando UP para o jogo
-    # send_command(Command.DOWN)  # Exemplo de envio do comando DOWN para o jogo
-    # send_command(Command.SHOOT)  # Exemplo de envio do comando SHOOT para o jogo
-    # send_command(Command.BLOCK)  # Exemplo de envio do comando BLOCK para o jogo
-    
+def process_data(device, sample_size):
+    while True:
+        # –––––––––– Adquirar os dados do BITalino
+        data = device.read(sample_size)
+        
+        # –––––––––– Processar os dados do BITalino
+        print(data)
+        # TODO processar os dados aqui
 
-def acquire_data(device, nSamples, running_time):
-    start = time.time()
-    end = time.time()
-    while (end - start) < running_time:
-        # Read samples
-        dados = device.read(nSamples)
-        print(dados)
-        end = time.time()
+        # –––––––––– Enviar comandos para o jogo com base nos dados processados
+        # TODO enviar comandos para o jogo aqui
+        # Exemplo de envio de comandos:
+        # send_command(Command.UP)
+        # send_command(Command.DOWN)
+        # send_command(Command.SHOOT)
+        # send_command(Command.BLOCK)
 
 
-# –––––––––––––––––––––––––––––– Programa principal
 
-# Ligar ao dispositivo BITalino através do endereço MAC definido acima
-device = BITalino(macAddress)
+if __name__ == "__main__":
 
-# Mostrar a versão do firmware do BITalino (útil para verificar a ligação)
-print(device.version())
+    # Ligar ao dispositivo BITalino através do endereço MAC definido acima
+    device = BITalino(macAddress)
 
-# Iniciar a aquisição de dados nos canais e frequência de amostragem definidos
-device.start(samplingRate, acqChannels)
+    # Mostrar a versão do firmware do BITalino (útil para verificar a ligação)
+    print(device.version())
 
-# Recolher e processar os dados durante o tempo definido
-acquire_data(device, nSamples, running_time)
+    # Iniciar a aquisição de dados nos canais e frequência de amostragem definidos
+    device.start(SAMPLING_RATE, SENSOR_CHANNELS)
 
-# Parar a aquisição de dados
-device.stop()
+    # Recolher e processar os dados durante o tempo definido
+    process_data(device, SAMPLE_SIZE)
 
-# Fechar a ligação com o dispositivo
-device.close()
+    # Parar a aquisição de dados
+    device.stop()
+
+    # Fechar a ligação com o dispositivo
+    device.close()
