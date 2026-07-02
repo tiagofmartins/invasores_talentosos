@@ -32,7 +32,8 @@ class Dashboard:
                 title=sensor_name,
                 width=900,
                 height=250,
-                x_axis_type="datetime",
+                #x_axis_type="linear",
+                x_axis_label="Sample"
             )
 
             plot.line(
@@ -88,12 +89,16 @@ class Dashboard:
 
                 data = self.buffer.snapshot()[sensor]
 
+                n = len(data["signal"])
+
                 src.data = {
-                    "x": data["time"],
+                    #"x": data["time"],
+                    "x": list(range(n)),
                     "signal": data["signal"],
-                    "threshold": [
-                        data["threshold"]
-                    ] * len(data["signal"])
+                    "threshold": [data["threshold"]] * n
+                    #"threshold": [
+                    #    data["threshold"]
+                    #] * len(data["signal"])
                 }
 
 
