@@ -1,4 +1,4 @@
-api_host: 127.0.0.1  # endereço onde a API vai estar disponível
+api_host: 0.0.0.0  # endereço onde a API vai estar disponível
 api_port: 8000  # porta onde a API vai estar disponível
 
 player_left: a  # ID do jogador do lado esquerdo
@@ -15,16 +15,16 @@ show_fps: false  # mostrar FPS
 player_area_ratio: 4  # largura da área de cada jogador (em x/9)
 stats_area_ratio: 1  # largura do painel central de estatísticas (em x/9)
 
-ship_size_percent: 7.0  # tamanho da nave em % da altura do ecrã
+ship_size_percent: 5.0  # tamanho da nave em % da altura do ecrã
 ship_margin_percent: 5.0  # margem da nave à borda em % da largura da área do jogador
 
-invader_size_percent: 5.0  # tamanho de cada invader em % da altura do ecrã
+invader_size_percent: 4.0  # tamanho de cada invader em % da altura do ecrã
 
-invader_horizontal_speed_percent: 6.0  # velocidade horizontal dos invaders (% altura/s)
-invader_vertical_speed_percent: 2.5  # velocidade vertical dos invaders (% altura/s)
+invader_horizontal_speed_percent: 7.0  # velocidade horizontal dos invaders (% altura/s)
+invader_vertical_speed_percent: 3.5  # velocidade vertical dos invaders (% altura/s)
 
 invaders_per_wave: 3  # número de invaders por onda
-invader_spawn_interval: 7  # segundos entre cada nova onda
+invader_spawn_interval: 5  # segundos entre cada nova onda
 
 invader_oscillation_amplitude_percent: 2.0  # amplitude da oscilação vertical (% altura)
 invader_oscillation_freq_min: 0.4  # frequência mínima de oscilação (Hz)
@@ -39,4 +39,4 @@ min_shot_interval: 0.35  # intervalo mínimo entre disparos (segundos)
 special_ability_hits_required: 2  # acertos consecutivos necessários para desbloquear o especial
 special_ability_duration: 3.0  # duração do bloqueio do adversário (segundos)
 
-star_count: 750  # número de estrelas no fundo
+star_count: 300  # número de estrelas no fundo

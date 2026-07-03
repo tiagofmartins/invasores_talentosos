@@ -21,20 +21,21 @@ from shared import Command
 # Identificador do jogador
 PLAYER_ID = "a"
 
-# Endereço e porta do servidor onde o jogo está a correr
+# Endereço e porta do servidor onde o jogo está a correr.
 API_HOST = "127.0.0.1"
 # API_HOST = "10.6.1.31"
 API_PORT = 8000
 
 
 # –––––––––––––––––––––––––––––– Comunicação com o servidor
-
+#<>
 def send(cmd: Command):
     """
     Envia o comando ao servidor do jogo via HTTP POST.
     O pedido é feito numa thread separada para não bloquear
     a janela enquanto se aguarda a resposta.
     """
+
     def _post_request():
         result = "ok"
         try:

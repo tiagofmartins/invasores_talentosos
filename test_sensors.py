@@ -19,24 +19,22 @@ def fake_sensor():
 
     while True:
 
-        for x in range(10):
-            buffer.add_sample(
-                "Sensor 1",
-                random.random()
-            )
+        buffer.add_sample(
+            "Sensor 1",
+            random.random()
+        )
 
-            buffer.add_sample(
-                "Sensor 2",
-                random.random()
-            )
+        buffer.add_sample(
+            "Sensor 2",
+            random.random()
+        )
 
-            buffer.add_sample(
-                "Sensor 3",
-                random.random()
-            )
+        buffer.add_sample(
+            "Sensor 3",
+            random.random()
+        )
 
-        time.sleep(0.1)
-        
+        time.sleep(0.02)
 
 
 
